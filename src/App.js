@@ -1,7 +1,20 @@
 import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm';
+import ToDoList from './components/TodoComponents/TodoList';
 
 
+const todos = [
+  {
+    task: "Organize Garage",
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: "Bake Cookies",
+    id: 1528817084358,
+    completed: false
+  }
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -11,22 +24,43 @@ class App extends React.Component {
     super();
     this.state = {
       todosOnState: todos,
+      inputField: '',
+
       todo: {
         task: '',
         id: '',
         completed: ''
       }
+
     };
   }
+
+  handleChanges = event => {
+    this.setState({
+      inputField: event.target.value
+    });
+  };
+
+  addTodo = event => {
+    event.preventDefault();
+
+    let tempObject = {
+      task: this.state.inputField
+    }
+
+    this.setState({
+
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
 
-        <ToDoList />
+        <ToDoList todosOnState={this.state.todosOnState} />
       
-        <ToDoForm />
+        <ToDoForm addTodo={this.addTodo} todo={this.state.inputField} handleChanges={this.handleChanges} />
 
       </div>
     );
