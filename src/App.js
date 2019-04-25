@@ -1,7 +1,7 @@
 import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm';
 import ToDoList from './components/TodoComponents/TodoList';
-
+import './components/TodoComponents/Todo.css'
 
 const todos = [
   {
@@ -38,9 +38,9 @@ class App extends React.Component {
     });
   };
 
+
   addTodo = event => {
     event.preventDefault();
-
 
     this.setState( {
       todo:[...this.state.todo, { task: this.state.inputField, id: Date.now(), completed: false } ],
@@ -48,14 +48,39 @@ class App extends React.Component {
      });
   };
 
+  toggleComplete = id => {
+    const newTodosArray = this.state.todo.map(todo => {
+       if (todo.id === id) {
+         return { ...todo, completed: !todo.completed}
+       }
+      return todo;
+    })
+
+    this.setState( {todo: newTodosArray } );
+  }
+
+  removeCompleted = () => {
+    const clearedTodosArray = this.state.todo.filter((bananaTodo) => {
+      if (!bananaTodo.completed) {
+        return true
+      } else {
+        return false;
+      }
+    })
+    this.setState({ todo: clearedTodosArray})
+  }
+
+
   render() {
     return (
-      <div>
+      <div className = "cool-style">
         <h2>Welcome to your Todo App!</h2>
 
-        <ToDoList todosOnState={this.state.todo} />
-      
-        <ToDoForm addTodo={this.addTodo} todo={this.state.inputField} handleChanges={this.handleChanges} />
+        <div className = "list-style">
+          <ToDoList todosOnState={this.state.todo} toggleComplete={this.toggleComplete} />
+        </div>
+
+        <ToDoForm addTodo={this.addTodo} todo={this.state.inputField} handleChanges={this.handleChanges} removeCompleted={this.removeCompleted} handleSubmit={this.handleSubmit} />
 
       </div>
     );

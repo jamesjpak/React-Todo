@@ -1,0 +1,99 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2d2d37;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.cool-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-style {
+  padding: 20px;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  text-align: left;
+}
+
+
+.item {
+  background-color: #4e914e;
+  width: 100%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+}
+
+.item.purchased {
+  background-color: #4e914eb4;
+  text-decoration: line-through;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+form > input {
+  background-color: #2d2d37;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  width: 45%;
+  width: 45%;
+  border-bottom: 1px solid  #4e914e;
+  margin-right: 8px;
+}
+
+button {
+  margin-left: 10px;
+  background-color: #4e914e;
+  border: 1px solid  #4e914e;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+}
+
+input::placeholder {
+  color:  #4e914e;
+  opacity: 1;
+}
+
